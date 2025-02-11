@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/style.css' %}">
+    <style>
+        /* .reg{
+            color: white;
+            text-decoration: none;
+        } */
+    </style>
+</head>
+<body>
+    <div class="login_div">
+        <h2 style="text-align: center;">LOGIN</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <p><b>USERNAME: </b><input type="text" name="uname" placeholder="username"></p>
+            <p><b>PASSWORD: </b><input type="password" name="password" placeholder="password" class="pswd"></p>
+            <input type="submit" value="login">
+        </form>
+        <p>New customer ? <a href="register" class="reg text-dark">Register</a> </p>
+        
+    </div>
+    
+</body>
+</html>
