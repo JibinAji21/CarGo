@@ -48,6 +48,22 @@ def shop_home(req):
     else:
         return redirect(shop_login)
     
+
+def add_car(req):
+    if req.method=='POST':
+        id=req.POST['car_id']
+        name=req.POST['car_name']
+        year=req.POST['car_year']
+        place=req.POST['car_place']
+        rent=req.POST['car_rent']
+        fuel=req.POST['car_fuel']
+        file=req.FILES['car_img']
+        data=Cars.objects.create(car_id=id,car_name=name,car_year=year,car_place=place,car_rent=rent,car_fuel=fuel,car_img=file)
+        data.save()
+        return redirect(shop_home)
+    return render(req,'shop/addcar.html')
+
+    
 def register(req):
     if req.method=='POST':
         name=req.POST['name']

@@ -9,4 +9,6 @@ class Cars(models.Model):
     car_place=models.TextField()
     car_rent=models.IntegerField()
     car_fuel=models.TextField()
+    car_img=models.FileField()
+
 
