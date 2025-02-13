@@ -105,10 +105,14 @@ def register(req):
     else:
         return render(req,'user/register.html')
     
-
+    
 def user_home(req):
-    if 'user' in req.session:
-        data=Cars.objects.all()
-        return render(req,'user/customer_home.html',{'data':data})
-    else:
-        return redirect(shop_login)
+    # if 'user' in req.session:
+        car=Cars.objects.all()
+        return render(req,'user/customer_home.html',{'cars':car})
+    # else:
+        # return redirect(shop_login)
+    
+def view_car(req,pid):
+    car=Cars.objects.get(pk=pid)
+    return render(req,'user/view_cars.html',{'cars':car})
