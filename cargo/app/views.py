@@ -76,13 +76,13 @@ def edit_car(req,id):
         if file:
             Cars.objects.filter(pk=id).update(car_id=e_id,car_name=name,car_year=year,car_place=place,car_rent=rent,car_fuel=fuel,car_img=file)
         else:
-            Cars.objects.filter(pk=id).update(product_id=e_id,product_name=name,car_year=year,car_place=place,car_rent=rent,car_fuel=fuel)
+            Cars.objects.filter(pk=id).update(car_id=e_id,car_name=name,car_year=year,car_place=place,car_rent=rent,car_fuel=fuel)
         return redirect(shop_home)
     return render(req,'shop/edit_car.html',{'data':car})
 
-def delete_product(req,id):
+def delete_car(req,id):
     data=Cars.objects.get(pk=id)
-    url=data.img.url
+    url=data.car_img.url
     url=url.split('/')[-1]
     os.remove('media/'+url)
     data.delete()

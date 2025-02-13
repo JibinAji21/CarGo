@@ -7,7 +7,7 @@ urlpatterns=[
     path('logout',views.shop_logout),
     path('add_car',views.add_car),
     path('edit_car/<id>',views.edit_car),
-    # path('delete_car/<id>',views.delete_car),
+    path('delete_car/<id>',views.delete_car),
 
     path('register',views.register),
     
