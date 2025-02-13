@@ -34,6 +34,49 @@
     }
 }
 
+/* Ensure cards have the same height */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex-grow: 1; /* Allow the card body to grow and fill remaining space */
+}
+
+
+
+
+/* Ensure cards have the same height */
+.card {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-body {
+    flex-grow: 1; /* Allow the card body to grow and fill remaining space */
+}
+
+.card-img-top {
+    object-fit: cover;
+    height: 200px; /* Set a fixed height for the images */
+}
+
+.card-title, .card-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.btn {
+    margin-top: 10px; /* Space between the buttons */
+}
+
+/* Optional: Adjust padding for the card body */
+.card-body {
+    padding: 1rem;
+}
+
+
   </style>
 </head>
 <body>
@@ -92,7 +135,7 @@
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-primary" type="submit">Search</button>
+              <button class="btn btn-secondary" type="submit">Search</button>
             </form>
           </div>
         </div>
@@ -128,7 +171,7 @@
       <div>
         <h2>BUDGET CARS</h2>
       </div>
-    <div class="container mt-4">
+    <!-- <div class="container mt-4">
         <div class="row">
             {% for car in cars %}
             <div class="col-lg-4 mt-4">
@@ -141,8 +184,8 @@
                         <p class="card-text">Rent: {{car.car_rent}}</p>
                         <p class="card-text">Fuel Type: {{car.car_fuel}}</p>
                         <div>
-                            <a href="edit_car/{{car.pk}}" class="btn">EDIT</a>
-                            <a href="delete_car/{{car.pk}}" class="btn">DELETE</a>
+                            <a href="edit_car/{{car.pk}}" class="btn btn-secondary">EDIT</a>
+                            <a href="delete_car/{{car.pk}}" class="btn btn-danger">DELETE</a>
                         </div>
                         
                     </div>
@@ -150,7 +193,55 @@
             </div>
             {% endfor %}
         </div>
+    </div> -->
+
+    <!-- <div class="container mt-4">
+      <div class="row">
+          {% for car in cars %}
+          <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
+              <div class="card h-100">
+                  <img src="{{car.car_img.url}}" alt="" class="card-img-top">
+                  <div class="card-body">
+                      <h4 class="card-title">Name :  {{car.car_name}}</h4>
+                      <p class="card-text fw-light fw-secondary">Year :{{car.car_year}}</p>
+                      <p class="card-text">Location: {{car.car_place}}</p>
+                      <p class="card-text">Rent: {{car.car_rent}}</p>
+                      <p class="card-text">Fuel Type: {{car.car_fuel}}</p>
+                      <div>
+                          <a href="edit_car/{{car.pk}}" class="btn btn-secondary">EDIT</a>
+                          <a href="delete_car/{{car.pk}}" class="btn btn-danger">DELETE</a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          {% endfor %}
+      </div>
+  </div>
+   -->
+
+   <div class="container mt-4">
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
+            <div class="card h-100">
+                <img src="{{car.car_img.url}}" alt="" class="card-img-top">
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Name :  {{car.car_name}}</h4>
+                    <p class="card-text fw-light fw-secondary">Year : {{car.car_year}}</p>
+                    <p class="card-text">Location: {{car.car_place}}</p>
+                    <p class="card-text">Rent: {{car.car_rent}}</p>
+                    <p class="card-text">Fuel Type: {{car.car_fuel}}</p>
+                    <div class="mt-auto">
+                        <a href="edit_car/{{car.pk}}" class="btn btn-secondary">EDIT</a>
+                        <a href="delete_car/{{car.pk}}" class="btn btn-danger">DELETE</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
     </div>
+</div>
+
 
     
 
